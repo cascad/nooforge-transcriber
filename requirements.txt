@@ -1,0 +1,18 @@
+# Core dependencies
+gradio>=4.0.0
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# Whisper options (install one or both)
+openai-whisper>=20250625
+faster-whisper>=1.0.0
+
+# Audio/Video processing
+ffmpeg-python>=0.2.0
+
+# Database
+# (sqlite3 включен в Python стандартную библиотеку)
+
+# Utilities
+numpy>=1.24.0
+

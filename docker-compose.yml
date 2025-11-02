@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    runtime: nvidia  # важно для доступа к GPU
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,video  # video — для ffmpeg + CUDA
+    volumes:
+      - ./models:/app/models
+      - ./files:/app/files
+    # Если вы запускаете FastAPI/Uvicorn сервер:
+    ports:
+      - "7861:7861"
+    # command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    command: ["python", "-m", "app.main"]
+    # command: ["sleep", "infinity"]
